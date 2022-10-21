@@ -94,7 +94,10 @@
     font-size: large;
     cursor: pointer;
 }
-
+.note-button:hover{
+    background-color: rgba(191, 255, 0, 0.892);
+    
+}
 @media (max-width: 1440px){
     .input-box textarea{
         width: 50vw;
