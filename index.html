@@ -28,7 +28,15 @@
         </div>
         <div class="note-list">
             <div class="content">
-
+                <div class="note">
+                    <div class="note-text">
+                    ${data[i].text}
+                    </div>
+                    <div class="btn">
+                    <!-- <button class="note-button" onclick="edit_note(${i})"><i class="fa-solid fa-pen-to-square"></i></button> -->
+                        <button class="note-button"onclick="delete_note(${i})"><i class="fa-solid fa-trash"></i></button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

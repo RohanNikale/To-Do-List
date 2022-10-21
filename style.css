@@ -98,6 +98,16 @@
     background-color: rgba(191, 255, 0, 0.892);
     
 }
+.delete{
+    transition: all 0.3s ease;
+    animation: mymove 0.5s 1;
+
+}
+@keyframes mymove {
+    0%{color: red;position:absolute;}
+    100%{position:absolute;;margin-left: 1000px;}
+    
+}
 @media (max-width: 1440px){
     .input-box textarea{
         width: 50vw;

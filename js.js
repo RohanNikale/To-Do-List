@@ -16,8 +16,17 @@ let update = (data) => {
     document.getElementsByClassName('content')[0].innerHTML = str
 
 }
-
-let delete_note = (value) => {
+let sleep = async () => {
+    return new Promise((resolve,reject)=>{
+        setTimeout(() => {
+            console.log('hahah')
+            resolve(200)
+        }, 500)
+    })
+    }
+let delete_note = async (value) => {
+    document.getElementsByClassName('note')[value].classList.add('delete')
+    await sleep()
     let notes = JSON.parse(localStorage.getItem('data'))
     notes.splice(value, 1)
     let data = JSON.stringify(notes)
@@ -40,7 +49,7 @@ let delete_note = (value) => {
 
 document.getElementById('add').onclick = () => {
     let value = document.getElementById('input').value
-    if (value.length > 0){
+    if (value.length > 0) {
         if (localStorage.getItem('data') == null) {
             arr = [].reverse()
             console.log('adding')
