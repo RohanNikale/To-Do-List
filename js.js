@@ -21,7 +21,7 @@ let sleep = async () => {
         setTimeout(() => {
             console.log('hahah')
             resolve(200)
-        }, 500)
+        }, 400)
     })
     }
 let delete_note = async (value) => {
