@@ -21,6 +21,7 @@
             <div class="input-box">
                 <textarea name="todo" placeholder="Add Note" id="input" cols="" rows="10"></textarea><br>
                 <button id="add">Add</button>
+                <button style="width: 130px;" onclick="removeall()">Remove All</button>
             </div>
         </div>
         <div class="note-heading">
@@ -28,15 +29,7 @@
         </div>
         <div class="note-list">
             <div class="content">
-                <div class="note">
-                    <div class="note-text">
-                    ${data[i].text}
-                    </div>
-                    <div class="btn">
-                    <!-- <button class="note-button" onclick="edit_note(${i})"><i class="fa-solid fa-pen-to-square"></i></button> -->
-                        <button class="note-button"onclick="delete_note(${i})"><i class="fa-solid fa-trash"></i></button>
-                    </div>
-                </div>
+
             </div>
         </div>
     </div>

@@ -12,7 +12,6 @@ let update = (data) => {
     </div>
         `
     }
-    console.log(str)
     document.getElementsByClassName('content')[0].innerHTML = str
 
 }
@@ -34,7 +33,13 @@ let delete_note = async (value) => {
     update(JSON.parse(localStorage.getItem('data')))
 }
 
-
+function removeall(){
+    let a=confirm('Do you want to delete all notes')
+    if(a){        
+        localStorage.clear()
+        update(JSON.parse(localStorage.getItem('data')))
+    }
+}
 
 
 // let edit_note=(value)=>{
@@ -54,7 +59,7 @@ document.getElementById('add').onclick = () => {
             arr = [].reverse()
             console.log('adding')
             console.log(value)
-            arr.push({ text: value })
+            arr.unshift({ text: value })
             let data = JSON.stringify(arr)
             localStorage.setItem('data', data)
             update(JSON.parse(localStorage.getItem('data')))
@@ -63,7 +68,7 @@ document.getElementById('add').onclick = () => {
         else {
             arr = JSON.parse(localStorage.getItem('data')).reverse()
             console.log(value)
-            arr.push({ text: value })
+            arr.unshift({ text: value })
             let data = JSON.stringify(arr)
             localStorage.setItem('data', data)
 
