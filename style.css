@@ -111,6 +111,18 @@
     100%{position:absolute;;margin-left: 1000px;}
     
 }
+
+.alldelete{
+
+    animation: allanimation 0.3s 1;
+}
+@keyframes allanimation {
+    0%{color: red;}
+    60%{margin-left: 1000px;}
+    100%{opacity: 0;}
+    
+}
+
 @media (max-width: 1440px){
     .input-box textarea{
         width: 50vw;

@@ -23,17 +23,17 @@ let update = (data) => {
     document.getElementsByClassName('content')[0].innerHTML = str
     
 }
-let sleep = async () => {
+let sleep = async (value) => {
     return new Promise((resolve,reject)=>{
         setTimeout(() => {
             console.log('hahah')
             resolve(200)
-        }, 400)
+        }, value)
     })
     }
 let delete_note = async (value) => {
     document.getElementsByClassName('note')[value].classList.add('delete')
-    await sleep()
+    await sleep(400)
     let notes = JSON.parse(localStorage.getItem('data'))
     notes.splice(value, 1)
     let data = JSON.stringify(notes)
@@ -41,11 +41,22 @@ let delete_note = async (value) => {
     update(JSON.parse(localStorage.getItem('data')))
 }
 
-function removeall(){
-    let a=confirm('Do you want to delete all notes')
-    if(a){        
-        localStorage.clear()
-        update(JSON.parse(localStorage.getItem('data')))
+let removeall = async()=>{
+    if(localStorage.getItem('data')!=null){
+        if(JSON.parse(localStorage.getItem('data')).length!=0){
+
+            let a=confirm('Do you want to delete all notes')
+            for(i=0;i<JSON.parse(localStorage.getItem('data')).length;i++){
+                console.log(i)
+                document.getElementsByClassName('note')[i].classList.add('alldelete')
+            }
+            console.log('iam out')
+            await sleep(290)
+            if(a){        
+                localStorage.clear()
+                update(JSON.parse(localStorage.getItem('data')))
+            }
+        }
     }
 }
 
