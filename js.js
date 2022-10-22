@@ -8,14 +8,15 @@ let update = (data) => {
     }
     let str = ""
     for (i in data) {
-        str += `<div class="note">
-        <div class="note-text">
-        ${data[i].text}
-        </div>
-        <div class="btn">
-        <!-- <button class="note-button" onclick="edit_note(${i})"><i class="fa-solid fa-pen-to-square"></i></button> -->
-        <button class="note-button"onclick="delete_note(${i})"><i class="fa-solid fa-trash"></i></button>
-        </div>
+        str += `
+        <div class="note">
+            <div class="note-text">
+                ${data[i].text}
+            </div>
+            <div class="btn">
+                <!-- <button class="note-button" onclick="edit_note(${i})"><i class="fa-solid fa-pen-to-square"></i></button> -->
+                <button class="note-button"onclick="delete_note(${i})"><i class="fa-solid fa-trash"></i></button>
+            </div>
         </div>
         `
     }
@@ -32,7 +33,7 @@ let sleep = async (value) => {
     }
 let delete_note = async (value) => {
     document.getElementsByClassName('note')[value].classList.add('delete')
-    await sleep(400)
+    await sleep(200)
     let notes = JSON.parse(localStorage.getItem('data'))
     notes.splice(value, 1)
     let data = JSON.stringify(notes)
@@ -49,7 +50,7 @@ let removeall = async()=>{
                 for(i=0;i<JSON.parse(localStorage.getItem('data')).length;i++){
                     document.getElementsByClassName('note')[i].classList.add('alldelete')
                 }
-                await sleep(290)
+                await sleep(200)
                 localStorage.clear()
                 update(JSON.parse(localStorage.getItem('data')))
             }
@@ -77,15 +78,17 @@ document.getElementById('add').onclick = () => {
             let data = JSON.stringify(arr)
             localStorage.setItem('data', data)
             update(JSON.parse(localStorage.getItem('data')))
-
+            document.getElementById('input').value=''
+            
         }
         else {
             arr = JSON.parse(localStorage.getItem('data')).reverse()
             arr.unshift({ text: value })
             let data = JSON.stringify(arr)
             localStorage.setItem('data', data)
-
+            
             update(JSON.parse(localStorage.getItem('data')))
+            document.getElementById('input').value=''
         }
     }
 

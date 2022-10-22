@@ -78,6 +78,11 @@
     padding: 10px;
     display: flex;
     padding: 20px;
+    transition: all 1s ease;
+}
+.note-main{
+    width: 30vw;
+    height: auto;
 }
 .note-text{
     display: flex;
@@ -102,28 +107,27 @@
     
 }
 .delete{
-    transition: all 0.3s ease;
-    animation: mymove 0.5s 1;
+    animation: mymove 0.3s infinite;
 
 }
 @keyframes mymove {
-    0%{color: red;position:absolute;}
-    100%{position:absolute;;margin-left: 1000px;}
+    0%{color: red;}
+    100%{transform: scale(0);}
     
 }
 
 .alldelete{
 
-    animation: allanimation 0.3s 1;
+    animation: allanimation 0.3s infinite;
 }
 @keyframes allanimation {
     0%{color: red;}
     60%{margin-left: 1000px;}
-    100%{opacity: 0;}
+    100%{opacity: 0;transform: scale(0)}
     
 }
 
-@media (max-width: 1440px){
+@media (max-width: 1500px){
     .input-box textarea{
         width: 50vw;
     }
@@ -133,6 +137,15 @@
 }
 
 @media (max-width: 425px){
+    .input-box textarea{
+        width: 85vw;
+    }
+    .note-list .note{
+        width: 82vw;
+    }
+}
+
+@media (max-width: 768px){
     .input-box textarea{
         width: 85vw;
     }
