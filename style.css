@@ -77,8 +77,11 @@
     box-shadow: 1px 4px 37px 1px rgba(0, 0, 0, 0.193);
     padding: 10px;
     display: flex;
+    padding: 20px;
 }
 .note-text{
+    display: flex;
+    align-items: center;
     width: 100%;
     word-wrap: break-word;
 }
