@@ -1,4 +1,11 @@
 let update = (data) => {
+    if(localStorage.getItem('data')==null || JSON.parse(localStorage.getItem('data')).length ==0){
+        document.getElementsByClassName('note-heading')[0].style.visibility="hidden"
+        document.getElementsByClassName('content')[0].innerHTML=` <div class="data-not">
+        No Todo's to display
+        </div>`
+        return 0
+    }
     let str = ""
     for (i in data) {
         str += `<div class="note">
@@ -7,13 +14,14 @@ let update = (data) => {
         </div>
         <div class="btn">
         <!-- <button class="note-button" onclick="edit_note(${i})"><i class="fa-solid fa-pen-to-square"></i></button> -->
-            <button class="note-button"onclick="delete_note(${i})"><i class="fa-solid fa-trash"></i></button>
+        <button class="note-button"onclick="delete_note(${i})"><i class="fa-solid fa-trash"></i></button>
         </div>
-    </div>
+        </div>
         `
     }
+    document.getElementsByClassName('note-heading')[0].style.visibility="visible"
     document.getElementsByClassName('content')[0].innerHTML = str
-
+    
 }
 let sleep = async () => {
     return new Promise((resolve,reject)=>{
