@@ -26,7 +26,6 @@ let update = (data) => {
 let sleep = async (value) => {
     return new Promise((resolve,reject)=>{
         setTimeout(() => {
-            console.log('hahah')
             resolve(200)
         }, value)
     })
@@ -46,13 +45,11 @@ let removeall = async()=>{
         if(JSON.parse(localStorage.getItem('data')).length!=0){
 
             let a=confirm('Do you want to delete all notes')
-            for(i=0;i<JSON.parse(localStorage.getItem('data')).length;i++){
-                console.log(i)
-                document.getElementsByClassName('note')[i].classList.add('alldelete')
-            }
-            console.log('iam out')
-            await sleep(290)
             if(a){        
+                for(i=0;i<JSON.parse(localStorage.getItem('data')).length;i++){
+                    document.getElementsByClassName('note')[i].classList.add('alldelete')
+                }
+                await sleep(290)
                 localStorage.clear()
                 update(JSON.parse(localStorage.getItem('data')))
             }
@@ -76,8 +73,6 @@ document.getElementById('add').onclick = () => {
     if (value.length > 0) {
         if (localStorage.getItem('data') == null) {
             arr = [].reverse()
-            console.log('adding')
-            console.log(value)
             arr.unshift({ text: value })
             let data = JSON.stringify(arr)
             localStorage.setItem('data', data)
@@ -86,7 +81,6 @@ document.getElementById('add').onclick = () => {
         }
         else {
             arr = JSON.parse(localStorage.getItem('data')).reverse()
-            console.log(value)
             arr.unshift({ text: value })
             let data = JSON.stringify(arr)
             localStorage.setItem('data', data)
